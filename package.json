@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/yiyanwu/wheel-wjw#readme",
   "dependencies": {
-    "vue": "^2.6.10"
+    "vue": "2.5.16"
   }
 }
