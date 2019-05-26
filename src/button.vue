@@ -35,6 +35,7 @@
       background: var(--button-bg);
       display: inline-flex; justify-content: center; align-items: center;
       vertical-align: middle;
+      > svg { margin-top: 1.5px; }
       &:hover { border-color: var(--border-color-hover);}
       &:active { background-color: var(--button-active-bg);}
       &:focus { outline: none;}
