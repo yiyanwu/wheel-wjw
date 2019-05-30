@@ -87,4 +87,5 @@ const expect = chai.expect
     vm.$mount()
     vm.$on('click',function () {})
     let button = vm.$el
+    
 }
