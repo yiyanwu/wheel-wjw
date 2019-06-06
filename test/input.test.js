@@ -72,9 +72,14 @@ const expect = chai.expect;
           vm.$on(eventName, callback)
           //手动触发 input 的各项事件
           let event = new Event(eventName)
+          Object.defineProperty(
+              event,'target',{
+                  value:{value: 'hi'},enumerable: true
+              }
+          )
           let inputElement = vm.$el.querySelector('input')
           inputElement.dispatchEvent(event)
-          expect(callback).to.have.been.calledWith(event)
+          expect(callback).to.have.been.calledWith('hi')
         })
     })
    })
