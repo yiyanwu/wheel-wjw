@@ -17,7 +17,7 @@ import Icon from './icon'
 
 export default {
     components: {Icon},
-    name: 'wheel-input',
+    name: 'WheelInput',
     props: {
         value: {
             type: String

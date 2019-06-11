@@ -11,7 +11,7 @@
 <script>
   import Icon from './icon'
   export default {
-    name: 'wheel-button',
+    name: 'WheelButton',
     components: {
       'g-icon': Icon
     },

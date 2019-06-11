@@ -24,76 +24,30 @@
             --border-color-hover: #666;
         }
 
-        #app {
-            margin: 20px;
-        }
+        *app {}
 
         body {
             font-size: var(--font-size);
         }
     </style>
-    <style>
-        .box { margin: 20px}
-    </style>
 </head>
 
 <body>
+    <style>
+       .demo {
+           border: 1px solid #666;
+           min-height: 100px;
+       }
+    </style>
     <div id="app">
-      <div style="border: 1px solid black;">
-        
-        <g-row gutter="20">
-            <g-col span="24" 
-            :ipad="{span:8}"
-            :narrow-pc="{span:4}"
-            >10</g-col>
-
-            <g-col span="24" 
-            :ipad="{span:16}"
-            :narrow-pc="{span:20}"
-            >11</g-col>
-        </g-row>
-        <g-row gutter="20">
-            <g-col span="2">10</g-col>
-            <g-col span="20" offset="2">11</g-col>
-        </g-row>
-        <g-row gutter="20">
-            <g-col span="4">10</g-col>
-            <g-col span="8" offset="2">11</g-col>
-            <g-col span="8" offset="2">11</g-col>
-        </g-row>
-      </div>
-        <hr>
-        <div class="box">
-            <g-input value="水猴"></g-input>
-            <g-input value="萌新" disabled></g-input>
-            <g-input value="犬神" readonly></g-input>     
-        </div>
-        <div class="box">
-            <g-input value="猴" @change="inputChange"></g-input>
-        </div>
-        <div class="box">
-            <g-input value="猴" error="姓名不能少于两个字"></g-input>
-        </div>
-        <div class="box">
-            <g-input value="猴" v-model="message"></g-input>
-            <p>{{message}}</p>
-        </div>
-        <div class="box">
-            <g-button :loading="loading1" @click=" loading1 = !loading1">
-                按钮
-            </g-button>
-            <g-button icon="settings" :loading="loading2" @click=" loading2 = !loading2">
-                按钮
-            </g-button>
-            <g-button icon="settings" icon-position="right" :loading="loading3" @click=" loading3 = !loading3">
-                按钮
-            </g-button>
-            <g-button-group>
-                <g-button icon="left">上一页</g-button>
-                <g-button>更多</g-button>
-                <g-button icon="right" icon-position="right">下一页</g-button>
-            </g-button-group>
-        </div>
+        <g-layout style="height: 100vh;">
+            <g-sider class="demo">sider</g-sider>
+            <g-layout>
+                <g-header class="demo">header</g-header>
+                <g-content class="demo">content</g-content>
+                <g-footer class="demo">footer</g-footer>
+            </g-layout>
+        </g-layout>  
     </div>
     <script src="./src/app.js"></script>
 </body>
