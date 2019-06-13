@@ -33,32 +33,8 @@
 </head>
 
 <body>
-    <style>
-       .sider {
-           width: 150px;
-           background: #333;
-       }
-       .sider.slide-enter, .sider.slide-leave-to {
-        margin-left: -150px;
-    }
-       .header {
-           height: 100px;
-           background: #999;
-       }
-       .footer {
-           height: 50px;
-           background: #ccc;
-       }
-    </style>
     <div id="app">
-        <g-layout style="height: 100vh;">
-            <g-sider>sider</g-sider>
-            <g-layout>
-                <g-header>header</g-header>
-                <g-content>content</g-content>
-                <g-footer>footer</g-footer>
-            </g-layout>
-        </g-layout>  
+          <button @click="showToast">点一下</button>
     </div>
     <script src="./src/app.js"></script>
 </body>
