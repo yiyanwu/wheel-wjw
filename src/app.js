@@ -37,7 +37,7 @@ new Vue({
     },
     methods: {
         showToast(){
-            this.$toast('我是message')
+            this.$toast('<p>段落<strong>加粗</strong></p>', {enableHtml: false})
         }
     }
 })
