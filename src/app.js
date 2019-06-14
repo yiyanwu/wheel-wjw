@@ -37,7 +37,8 @@ new Vue({
     },
     methods: {
         showToast(){
-            this.$toast('<p>段落<strong>加粗</strong></p>', {enableHtml: false})
+            this.$toast('<p>段落<strong>加粗</strong></p>', 
+            {enableHtml: false, position: 'middle'})
         }
     }
 })

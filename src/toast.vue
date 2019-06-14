@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" ref="wrapper">
+  <div class="toast" ref="wrapper" :class="toastClasses">
     <div class="message">
       <slot v-if="!enableHtml"></slot>
       <div v-else v-html="$slots.default[0]"></div>
@@ -33,12 +33,26 @@ export default {
     enableHtml: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: 'top',
+      validator (value) {
+        return ['top','bottom','middle'].indexOf(value) >= 0
+      }
     }
   },
   created() {},
   mounted() {
     this.setLineHeight();
     this.execAutoClose();
+  },
+  computed: {
+    toastClasses() {
+      return {
+        [`position-${this.position}`]: true
+      }
+    }
   },
   methods: {
     setLineHeight() {
@@ -73,31 +87,17 @@ $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
 .toast {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: $font-size;
-  color: white;
-  line-height: 1.8;
+  position: fixed; left: 50%;
+  font-size: $font-size; color: white; line-height: 1.8;
   min-height: $toast-min-height;
-  display: flex;
-  align-items: center;
-  background: $toast-bg;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  padding: 0 16px;
-  border-radius: 4px;
-  .message {
-      padding: 8px 0;
-  }
-  .line {
-    border-left: 1px solid #666;
-    height: 100%;
-    margin-left: 16px;
-  }
-  .close {
-    padding-left: 16px;
-    flex-shrink: 0;
-  }
+  display: flex; align-items: center;
+  background: $toast-bg; box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  padding: 0 16px; border-radius: 4px;
+  .message { padding: 8px 0; }
+  .line { border-left: 1px solid #666; height: 100%; margin-left: 16px; }
+  .close { padding-left: 16px; flex-shrink: 0; }
+  &.position-top { top:0; transform: translateX(-50%);}
+  &.position-middle { top:50%; transform: translate(-50%, -50%);}
+  &.position-bottom { bottom:0; transform: translateX(-50%);}
 }
 </style>
