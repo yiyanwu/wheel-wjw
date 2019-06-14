@@ -16,12 +16,11 @@ export default {
   name: "WheelToast",
   props: {
     autoClose: {
-      type: Boolean,
-      default: true
-    },
-    autoCloseDelay: {
-      type: Number,
-      default: 50
+      type: [Boolean,Number],
+      default: 5,
+      validator(value) {
+        return value === false || typeof value === 'number';
+      }
     },
     closeButton: {
       type: Object,
@@ -44,13 +43,12 @@ export default {
       }
     }
   },
-  created() {},
   mounted() {
     this.setLineHeight();
     this.execAutoClose();
   },
   computed: {
-    toastClasses() {
+    toastClasses () {
       return {
         [`position-${this.position}`]: true
       };
@@ -58,7 +56,7 @@ export default {
   },
   methods: {
     setLineHeight() {
-      this.$nextTick(() => {
+      this.$nextTick().then(() => {
         this.$refs.line.style.height = `${
           this.$refs.toast.getBoundingClientRect().height
         }px`;
@@ -68,7 +66,7 @@ export default {
       if (this.autoClose) {
         setTimeout(() => {
           this.close();
-        }, this.autoCloseDelay * 1000);
+        }, this.autoClose * 1000);
       }
     },
     close() {

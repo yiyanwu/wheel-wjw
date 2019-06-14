@@ -38,7 +38,10 @@ new Vue({
     methods: {
         showToast(){
             this.$toast('这些字加了动画怎么会动一下', 
-            {enableHtml: false, position: 'top'})
+            {
+            enableHtml: false, 
+            position: 'top'
+        })
         }
     }
 })
