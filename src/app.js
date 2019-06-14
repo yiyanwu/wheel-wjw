@@ -37,8 +37,8 @@ new Vue({
     },
     methods: {
         showToast(){
-            this.$toast('<p>段落<strong>加粗</strong></p>', 
-            {enableHtml: false, position: 'middle'})
+            this.$toast('这些字加了动画怎么会动一下', 
+            {enableHtml: false, position: 'bottom'})
         }
     }
 })
