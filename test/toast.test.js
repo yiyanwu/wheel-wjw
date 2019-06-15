@@ -43,8 +43,7 @@ describe('Toast', () => {
                 closeButton.click()
                 expect(callback).to.have.been.called
                 done()
-            },200)
-            
+            },200)           
         })
         it('接受 enableHtml',() => {
             const Constructor = Vue.extend(Toast)
