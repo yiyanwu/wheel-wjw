@@ -36,7 +36,7 @@ export default {
                 vm.$children.forEach((childVm) => {
                     if (childVm.$options.name === 'WheelTabsItem'
                     && childVm.name === this.selected) {
-                        this.eventBus.$emit('update:selected',this.selected,childVm)
+                        this.eventBus.$emit('update:selected', this.selected, childVm)
                     }
                 })
             }
