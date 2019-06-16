@@ -33,10 +33,10 @@ export default {
     mounted() {
         this.$children.forEach((vm) => {
             if (vm.$options.name === 'WheelTabsHead') {
-                vm.$children.forEach((item) => {
-                    if (item.$options.name === 'WheelTabsItem'
-                    && item.name === this.selected) {
-                        this.eventBus.$emit('update:selected',this.selected,item)
+                vm.$children.forEach((childVm) => {
+                    if (childVm.$options.name === 'WheelTabsItem'
+                    && childVm.name === this.selected) {
+                        this.eventBus.$emit('update:selected',this.selected,childVm)
                     }
                 })
             }
