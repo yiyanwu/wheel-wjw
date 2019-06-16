@@ -39,20 +39,13 @@ Vue.use(plugin)
 new Vue({
     el:'#app',
     data: {
-        loading1 : false,
-        loading2 : true,
-        loading3 : false,
-        message: 'hi'
+        selectedTab: 'sports'
     },
     created () {
     },
     methods: {
-        showToast(){
-            this.$toast('这些字加了动画怎么会动一下', 
-            {
-            enableHtml: false, 
-            position: 'top'
-        })
-        }
+       yyy (data) {
+          
+       }
     }
 })
