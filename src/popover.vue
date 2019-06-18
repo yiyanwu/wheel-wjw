@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" @click.stop="xxx">
+  <div class="popover" @click="xxx">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible">
         <slot name="content"></slot>
     </div>
