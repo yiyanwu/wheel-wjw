@@ -29,14 +29,25 @@ export default {
   mounted() {},
   methods: {
     positionContent () {
-        document.body.appendChild(this.$refs.contentWrapper);
-        let { width, height, top, left} = this.$refs.triggerWrapper.getBoundingClientRect();
+        const {contentWrapper,triggerWrapper} = this.$refs
+        document.body.appendChild(contentWrapper);
+        let { width, height, top, left} = triggerWrapper.getBoundingClientRect();
         if (this.position === 'top') {
-            this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
-            this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
+            contentWrapper.style.left = left + window.scrollX + "px";
+            contentWrapper.style.top = top + window.scrollY + "px";
         } else if (this.position === 'bottom') {
-            this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
-            this.$refs.contentWrapper.style.top = top + height + window.scrollY + "px";
+            contentWrapper.style.left = left + window.scrollX + "px";
+            contentWrapper.style.top = top + height + window.scrollY + "px";
+        } else if (this.position === 'left') {
+            let {height: height2} = contentWrapper.getBoundingClientRect()
+            contentWrapper.style.left = left + window.scrollX + "px";
+            contentWrapper.style.top = top +
+            (height - height2)/2 + window.scrollY + "px";
+        } else if (this.position === 'right') {
+            let {height: height2} = contentWrapper.getBoundingClientRect()
+            contentWrapper.style.left = left + width + window.scrollX + "px";
+            contentWrapper.style.top = top + 
+            (height - height2)/2 + window.scrollY + "px";
         }
     },
     onClickDocment (e) {
@@ -83,6 +94,7 @@ $border-radius: 4px;
   word-break: break-all;
   padding: .5em 1em;
   border-radius: $border-radius;
+  background: white;
   &::before,&::after {
       content: '';
       border: 10px solid transparent;
@@ -120,6 +132,36 @@ $border-radius: 4px;
           bottom: calc(100% - 1px);
       }
   }
-  
+  &.position-left {
+      transform: translateX(-100%);
+      margin-left: -10px;
+      &::before,&::after {
+          transform: translateY(-50%);
+          top: 50%;
+      }
+      &::before {
+          border-left-color: black;
+          left: 100%;
+      }
+      &::after {
+          border-left-color: white;
+          left: calc(100% - 1px);
+      }
+  } 
+  &.position-right {
+      margin-left: 10px;
+      &::before,&::after {
+          transform: translateY(-50%);
+          top: 50%;
+      }
+      &::before {
+          border-right-color: black;
+          right: 100%;
+      }
+      &::after {
+          border-right-color: white;
+          right: calc(100% - 1px);
+      }
+  } 
 }
 </style>
