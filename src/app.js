@@ -47,7 +47,7 @@ new Vue({
     },
     methods: {
        yyy (data) {
-          
+          console.log('yyy')
        }
     }
 })
