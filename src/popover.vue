@@ -24,8 +24,8 @@
                   setTimeout(() => {
                       document.body.appendChild(this.$refs.contentWrapper)
                       let {width,height,top,left} = this.$refs.triggerWrapper.getBoundingClientRect()
-                      this.$refs.contentWrapper.style.left = left + 'px'
-                      this.$refs.contentWrapper.style.top = top + 'px'
+                      this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+                      this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
 
                       let eventHandler = () => {
                           this.visible = false
