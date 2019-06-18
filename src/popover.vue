@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" @click="onClick">
+  <div class="popover" @click="onClick" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible">
       <slot name="content"></slot>
     </div>
@@ -22,25 +22,29 @@ export default {
         this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
         this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
     },
+    onClickDocment (e) {
+        if (this.$refs.contentWrapper &&
+            this.$refs.contentWrapper.contains(e.target)) { 
+              return } else {
+              this.close()
+            }
+    },
+    open () {
+         this.visible = true
+         setTimeout(() => {
+            this.positionContent()
+            document.addEventListener("click", this.onClickDocment)
+          });
+    },
+    close () {
+        this.visible = false;
+        document.removeEventListener("click", this.onClickDocment);
+    },
     onClick(event) {
       if (this.$refs.triggerWrapper.contains(event.target)) {
-        this.visible = !this.visible;
         if (this.visible === true) {
-          setTimeout(() => {
-            this.positionContent()
-
-            let eventHandler = (e) => {
-              if (this.$refs.contentWrapper && this.$refs.contentWrapper.contains(e.target)) {
-                  
-              } else {
-                  this.visible = false;
-                  document.removeEventListener("click", eventHandler);
-              }
-            };
-
-            document.addEventListener("click", eventHandler);
-          });
-        } else {}
+           this.close()
+        } else { this.open()}
       }
     }
   }
