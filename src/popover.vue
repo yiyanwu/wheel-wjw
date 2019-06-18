@@ -30,10 +30,7 @@ export default {
             this.positionContent()
 
             let eventHandler = (e) => {
-                console.log(e.target)
-                console.log(this.$refs.contentWrapper)
-                console.log(this.visible)
-              if (this.$refs.contentWrapper.contains(e.target)) {
+              if (this.$refs.contentWrapper && this.$refs.contentWrapper.contains(e.target)) {
                   
               } else {
                   this.visible = false;
