@@ -1,10 +1,10 @@
 <template>
-  <div class="popover" @click="onClick" ref="popover">
+  <div class="popover" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible"
     :class="{[`position-${position}`]:true}">
       <slot name="content"></slot>
     </div>
-    <span ref="triggerWrapper" style="display:inline-block;">
+    <span ref="triggerWrapper" style="display:inline-block;"  @click="onClick">
       <slot></slot>
     </span>
   </div>
@@ -20,13 +20,19 @@ export default {
               return ['top','bottom','left','right'].indexOf(value) >= 0
           }
       }
+      
   },
   data() {
     return { 
         visible: false
     }
   },
-  mounted() {},
+  mounted() {
+      document.addEventListener("click", this.onClickDocment)
+  },
+  destroyed() {
+      document.removeEventListener("click", this.onClickDocment)
+  },
   methods: {
     positionContent () {
         const {contentWrapper,triggerWrapper} = this.$refs
@@ -52,28 +58,31 @@ export default {
     },
     onClickDocment (e) {
         if (this.$refs.contentWrapper &&
-            this.$refs.contentWrapper.contains(e.target)) { 
-              return } else {
-              this.close()
-            }
+            this.$refs.contentWrapper.contains(e.target) ||
+            this.$refs.triggerWrapper &&
+            this.$refs.triggerWrapper.contains(e.target)
+        ) { 
+            return;
+        } else {
+            this.visible = false;
+        }
     },
     open () {
-         this.visible = true
-         setTimeout(() => {
+         this.$emit('open')
+         this.$nextTick(() => {
             this.positionContent()
-            document.addEventListener("click", this.onClickDocment)
           });
     },
     close () {
-        this.visible = false;
-        document.removeEventListener("click", this.onClickDocment);
+        this.$emit('close')
     },
     onClick(event) {
-      if (this.$refs.triggerWrapper.contains(event.target)) {
-        if (this.visible === true) {
-           this.close()
-        } else { this.open()}
-      }
+        this.visible = !this.visible;
+        if(this.visible) {
+            this.open()
+        } else {
+            this.close();
+        }
     }
   }
 };
@@ -94,7 +103,8 @@ $border-radius: 4px;
   word-break: break-all;
   padding: .5em 1em;
   border-radius: $border-radius;
-  background: white;
+  background: white; 
+  display: block;
   &::before,&::after {
       content: '';
       border: 10px solid transparent;
