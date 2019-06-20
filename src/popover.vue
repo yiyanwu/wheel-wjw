@@ -4,7 +4,7 @@
     :class="{[`position-${position}`]:true}">
       <slot name="content"></slot>
     </div>
-    <span ref="triggerWrapper" style="display:inline-block;"  @click="onClick">
+    <span ref="triggerWrapper" style="display:inline-block;">
       <slot></slot>
     </span>
   </div>
@@ -19,15 +19,40 @@ export default {
           validator (value) {
               return ['top','bottom','left','right'].indexOf(value) >= 0
           }
+      },
+      trigger: {
+          type: String,
+          default: 'click',
+          validator (value) {
+              return ['click','hover'].indexOf(value) >= 0
+          }
+      } 
+  },
+  computed: {
+      openEvent () {
+          if (this.trigger === 'click') {
+              return 'click'
+          } else {
+              return 'mouseenter'
+          }
+      },
+      closeEvent () {
+          if (this.trigger === 'click') {
+              return 'click'
+          } else {
+              return 'mouseleave'
+          }
       }
-      
   },
   data() {
     return { 
         visible: false
     }
   },
+  
   mounted() {
+      this.$refs.triggerWrapper.addEventListener(this.openEvent,this.onEvent)
+      this.$refs.triggerWrapper.addEventListener(this.closeEvent,this.onEvent)
       document.addEventListener("click", this.onClickDocment)
   },
   destroyed() {
@@ -74,7 +99,7 @@ export default {
     close () {
         this.$emit('close')
     },
-    onClick(event) {
+    onEvent(event) {
         this.visible = !this.visible;
         if(this.visible) {
             this.open()
@@ -119,10 +144,12 @@ $border-radius: 4px;
       }
       &::before {
           border-top-color: black;
+          border-bottom-style: none;
           top: 100%;
       }
       &::after {
           border-top-color: white;
+          border-bottom-style: none;
           top: calc(100% - 1px);
       }
   }
@@ -133,10 +160,12 @@ $border-radius: 4px;
       }
       &::before {
           border-bottom-color: black;
+          border-top-style: none;
           bottom: 100%;
       }
       &::after {
           border-bottom-color: white;
+          border-top-style: none;
           bottom: calc(100% - 1px);
       }
   }
@@ -149,10 +178,12 @@ $border-radius: 4px;
       }
       &::before {
           border-left-color: black;
+          border-right-style: none;
           left: 100%;
       }
       &::after {
           border-left-color: white;
+          border-right-style: none;
           left: calc(100% - 1px);
       }
   } 
@@ -164,10 +195,12 @@ $border-radius: 4px;
       }
       &::before {
           border-right-color: black;
+          border-left-style: none;
           right: 100%;
       }
       &::after {
           border-right-color: white;
+          border-left-style: none;
           right: calc(100% - 1px);
       }
   } 
