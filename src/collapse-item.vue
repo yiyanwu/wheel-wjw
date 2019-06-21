@@ -15,6 +15,10 @@ export default {
         title: {
             type: String,
             required:true
+        },
+        name: {
+            type: String,
+            required: true
         }
     },
     data () {
@@ -23,32 +27,24 @@ export default {
         }
     },
     inject: {
-        eventBus: {
-            default: 'eventBus'
-        }
+        eventBus: ['eventBus']
     },
     mounted () {
-        if (typeof this.eventBus === 'object') { this.eventBus.$on('update:selected',(vm) => {
-            if (vm !== this) {
-                this.close()
+         this.eventBus && this.eventBus.$on('update:selected',(names) => {
+            if (names.indexOf(this.name) >= 0) {
+                this.show = true
+            } else {
+                this.show = false
             }
         })
-      }
     },
     methods: {
         toggle () {
             if (this.show) {
-                this.close()
+                this.eventBus && this.eventBus.$emit('update:removeSelected',this.name) 
             } else {
-                this.open()
-                if (typeof this.eventBus === 'object') { this.eventBus.$emit('update:selected',this) }
+                this.eventBus && this.eventBus.$emit('update:addSelected',this.name) 
             }
-        },
-        open () {
-            this.show = true
-        },
-        close () {
-            this.show = false
         }
     }
 }
