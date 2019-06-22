@@ -3,12 +3,15 @@
         <div class="title" @click="toggle" :data-name="name">
             {{title}}
         </div>
-        <div class="content" v-if="show">
+        <collapse-transition>
+            <div class="content" v-if="show">
             <slot></slot>
         </div>
+        </collapse-transition>
     </div>
 </template>
 <script>
+import collapseTransition from './collapse-transition'
 export default {
     name: 'WheelCollapseItem',
     props: {
@@ -20,6 +23,9 @@ export default {
             type: String,
             required: true
         }
+    },
+    components: {
+        collapseTransition
     },
     data () {
         return {
