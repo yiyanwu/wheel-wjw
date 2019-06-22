@@ -78,6 +78,11 @@ export default {
                 border-top-right-radius: $border-radius;
             }
         }
+        &:last-child {
+            > .title {
+                margin-bottom: -1px;
+            }
+        }
     }
 </style>
 

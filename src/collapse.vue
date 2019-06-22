@@ -56,5 +56,6 @@ export default {
   .collapse {
       border: 1px solid $border-color;
       border-radius: $border-radius;
+      overflow: hidden;
  }
 </style>
