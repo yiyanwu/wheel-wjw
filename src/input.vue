@@ -38,8 +38,8 @@ export default {
 </script>
 <style lang='scss' scoped>
 $height: 32px;
-$border-color: #999;
-$border-color-hover: #666;
+$border-color: #4cbcf0;
+$border-color-hover: #409eff;
 $border-radius: 4px;
 $font-size: 14px;
 $box-shadow-color: rgba(0,0,0,0.5);
@@ -52,12 +52,12 @@ $red: #f1453d;
             font-size: inherit; border-radius: $border-radius;
             &:hover { border-color: $border-color-hover;}
             &:focus { box-shadow: inset 0 1px 3px $box-shadow-color; outline: none;}
-            &[disabled],&[readonly] { border-color: #bbb; color: #bbb; cursor: not-allowed; }
+            &[disabled],&[readonly] { border-color: $border-color; color: #bbb; cursor: not-allowed; }
          }
          &.error {
              >input { border-color: $red;}
          }
-         .icon-error { fill: $red;}
+         .icon-error { stroke: $red;}
          .error-message { color: $red;}
      }
 </style>
