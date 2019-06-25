@@ -34,10 +34,10 @@
 <style lang="scss" scoped>
   $font-size: 14px;
   $button-height:32px;
-  $button-bg: white;
+  $button-bg: #4cbcf0;
   $button-active-bg: #eee;
   $border-radius: 4px;
-  $color: #333;
+  $color:white;
   $border-color: #999;
   $border-color-hover: #666;
   @keyframes spin {
@@ -48,7 +48,7 @@
       font-size:  $font-size; height: $button-height; padding: 0 1em;
       border-radius:$border-radius; border: 1px solid $border-color;
       background: $button-bg; display: inline-flex; justify-content: center;
-      align-items: center; vertical-align: middle;
+      align-items: center; vertical-align: middle; color: $color;
       > svg { margin-top: 1.5px; }
       &:hover { border-color: $border-color-hover;}
       &:active { background-color: $button-active-bg;}
@@ -58,6 +58,7 @@
         > .icon { order: 2; margin-left: 0.43em; margin-right: 0;} > .content { order: 1;}
       }
       .loading { animation: spin 2s infinite linear ;}
+      &[disabled]{ cursor: not-allowed;}
   }
 </style>
 
