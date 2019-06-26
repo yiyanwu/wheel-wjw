@@ -3,7 +3,7 @@
         <g-tabs :selected="selected">
             <g-tabs-head>
                 <g-tabs-item name="1">1</g-tabs-item>
-                <g-tabs-item name="2">2</g-tabs-item>
+                <g-tabs-item name="2" disabled>2</g-tabs-item>
                 <g-tabs-item name="3">3</g-tabs-item>
             </g-tabs-head>
             <g-tabs-body>
@@ -41,7 +41,7 @@ export default {
         <g-tabs :selected="selected">
             <g-tabs-head>
                 <g-tabs-item name="1">标题1</g-tabs-item>
-                <g-tabs-item name="2">标题2</g-tabs-item>
+                <g-tabs-item name="2" disabled>标题2</g-tabs-item>
                 <g-tabs-item name="3">标题3</g-tabs-item>
             </g-tabs-head>
             <g-tabs-body>
