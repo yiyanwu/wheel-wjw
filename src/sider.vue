@@ -23,10 +23,13 @@ export default {
             position: absolute;
             top: 0;
             right: 0;
+            height: 32px;
+            border-radius: 4px;
+            background: #e9e7ef;
         }
     }
     .slide-enter-active, .slide-leave-active {
-        transition: all 1s;
+        transition: all .5s;
     }
     .slide-enter, .slide-leave-to {
         margin-left: -200px;

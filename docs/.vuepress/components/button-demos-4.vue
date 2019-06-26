@@ -29,15 +29,15 @@ export default {
         return {
             content:`
             <g-button-group>
-               <g-button icon="left"></g-button>
-               <g-button icon="right" icon-position="right"></g-button>
-            </g-button-group>
+            <g-button icon="left"></g-button>
+            <g-button icon="right" icon-position="right"></g-button>
+        </g-button-group>
 
-            <g-button-group>
-               <g-button icon="left"></g-button>
-               <g-button icon="right"></g-button>
-               <g-button icon="down"></g-button>
-            </g-button-group>
+        <g-button-group>
+            <g-button icon="left"></g-button>
+            <g-button icon="right"></g-button>
+            <g-button icon="down"></g-button>
+        </g-button-group>
             `.replace(/^ {8}/gm, '').trim(),
             show:false
         }

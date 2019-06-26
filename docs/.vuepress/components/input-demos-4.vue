@@ -20,14 +20,12 @@ export default {
     data () {
         return {
             content:`
-            data:{
-              value: '双向绑定'
-            }
+            data:{ value: '双向绑定' }
 
-            <g-input v-model="value"></g-input>
-            <div>
-               {{value}}
-            </div>
+        <g-input v-model="value"></g-input>
+        <div>
+            {{value}}
+        </div>
             `.replace(/^ {8}/gm, '').trim(),
             show:false,
             value: '双向绑定'

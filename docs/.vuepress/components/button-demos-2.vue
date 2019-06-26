@@ -10,7 +10,7 @@
         <g-button icon="right"></g-button>
         <g-button icon="left"></g-button>
         
-        </br>
+        <br>
         <span @click="show = !show" class="code">展示代码</span>
         <span v-if="show"><pre><code>{{content}}</code></pre></span>
     </div>
@@ -25,16 +25,16 @@ export default {
     },
     data(){
         return {
-            content:`
+            content: `
               <g-button icon="settings"></g-button>
-              <g-button icon="error">error</g-button>
-              <g-button icon="info">info</g-button>
-              <g-button icon="loading" :loading="true">加载</g-button>
-              <g-button icon="download">下载</g-button>
-              <g-button icon="thumbs-up">点赞</g-button>
-              <g-button icon="down"></g-button>
-              <g-button icon="right"></g-button>
-              <g-button icon="left"></g-button>
+        <g-button icon="error">error</g-button>
+        <g-button icon="info">info</g-button>
+        <g-button icon="loading" :loading="true">加载</g-button>
+        <g-button icon="download">下载</g-button>
+        <g-button icon="thumbs-up">点赞</g-button>
+        <g-button icon="down"></g-button>
+        <g-button icon="right"></g-button>
+        <g-button icon="left"></g-button>
             `.replace(/^ {8}/gm, '').trim(),
             show:false
         }
