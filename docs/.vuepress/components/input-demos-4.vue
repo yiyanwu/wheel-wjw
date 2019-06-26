@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container" style="padding: 20px 0;">
         <g-input v-model="value"></g-input>
         <div>
             {{value}}

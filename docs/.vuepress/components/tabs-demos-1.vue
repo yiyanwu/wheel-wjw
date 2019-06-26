@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" style="padding: 20px 0;">
         <g-tabs :selected="selected">
             <g-tabs-head>
                 <g-tabs-item name="1">1</g-tabs-item>

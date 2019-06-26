@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container" style="padding: 20px 0;">
         <g-input value="中" error="姓名不能少于两个字"></g-input>
         
         </br>

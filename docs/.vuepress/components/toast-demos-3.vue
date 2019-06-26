@@ -1,23 +1,27 @@
 <template>
     <div class="container" style="padding: 20px 0;">
-        <g-input value="中文"></g-input>
-
+        <g-button @click="$toast('10s后自动关闭',{autoClose: 10})">上方弹出</g-button>
+        
         </br>
         <span @click="show = !show" class="code">展示代码</span>
         <span v-if="show"><pre><code>{{content}}</code></pre></span>
     </div>
 </template>
 <script>
-import Input from '../../../src/input'
+import Vue from 'vue'
+import plugin from '../../../src/plugin'
+import Button from '../../../src/button'
+
+Vue.use(plugin)
 
 export default {
     components: {
-        'g-input': Input
+        "g-button": Button
     },
-    data () {
+    data(){
         return {
             content:`
-            <g-input value="中文"></g-input>
+            <g-button @click="$toast('10s后自动关闭',{autoClose: 10})">上方弹出</g-button>
             `.replace(/^ {8}/gm, '').trim(),
             show:false
         }
@@ -25,7 +29,7 @@ export default {
 }
 </script>
 <style scoped>
-.code { 
+ .code { 
      color:#409eff;
      cursor: pointer;
  }

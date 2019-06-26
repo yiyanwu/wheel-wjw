@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" style="padding: 20px 0;">
         <g-button-group>
             <g-button icon="left">上一页</g-button>
             <g-button icon="right" icon-position="right">下一页</g-button>

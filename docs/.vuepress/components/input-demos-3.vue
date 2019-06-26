@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container" style="padding: 20px 0;">
         <g-input value="中文" readonly></g-input>
 
         </br>

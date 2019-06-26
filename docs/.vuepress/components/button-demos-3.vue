@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" style="padding: 20px 0;">
         <g-button disabled>禁用按钮</g-button>
         
         </br>

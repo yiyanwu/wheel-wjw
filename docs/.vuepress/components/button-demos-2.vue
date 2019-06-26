@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container" style="padding: 20px 0;">
         <g-button icon="settings"></g-button>
         <g-button icon="error">error</g-button>
         <g-button icon="info">info</g-button>
