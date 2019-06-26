@@ -3,7 +3,7 @@
         <g-layout style="margin-top:20px; overflow:hidden;">
             <g-header style="height:50px;  background:#4cbcf0">header</g-header>
             <g-layout>
-              <g-sider style="width:200px; background:#70f3ff;">sider</g-sider>
+              <g-sider style="width:200px; background:#87CEFA;">sider</g-sider>
               <g-content style="height:100px;  background:#409eff">content</g-content>
             </g-layout>
             <g-footer style="height:50px;  background:#4cbcf0">footer</g-footer>

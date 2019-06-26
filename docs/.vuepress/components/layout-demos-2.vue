@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <g-layout style="margin-top:20px; overflow:hidden;">
-            <g-sider style="width:200px; background:#70f3ff;">sider</g-sider>
+            <g-sider style="width:200px; background:#87CEFA;">sider</g-sider>
             <g-layout>
               <g-header style="height:50px;  background:#4cbcf0">header</g-header>
               <g-content style="height:100px;  background:#409eff">content</g-content>
