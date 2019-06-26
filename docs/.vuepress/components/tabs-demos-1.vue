@@ -20,10 +20,10 @@
 </template>
 <script>
 import Tabs from '../../../src/tabs'
-import TabsHead from '../../../src/tabs-head'
 import TabsItem from '../../../src/tabs-item'
 import TabsBody from '../../../src/tabs-body'
 import TabsPane from '../../../src/tabs-pane'
+import TabsHead from '../../../src/tabs-head'
 
 export default {
     components: {

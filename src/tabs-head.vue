@@ -8,7 +8,6 @@
     </div>
 </template>
 <script>
-import { constants } from 'crypto';
 export default {
     name: 'WheelTabsHead',
     inject: ['eventBus'],
