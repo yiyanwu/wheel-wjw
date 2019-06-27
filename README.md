@@ -1,8 +1,13 @@
 # wjw-UI - 一个  Vue UI 组件
+<<<<<<< HEAD
 
 [![Build Status](https://travis-ci.org/yiyanwu/wheel-wjw.svg?branch=master)](https://travis-ci.org/yiyanwu/wheel-wjw)  ![GitHub](https://img.shields.io/github/license/yiyanwu/wheel-wjw.svg)
 
+=======
+>>>>>>> 52c4c828f5ab1300fbe3fb4ee4818b5c31e89826
 
+
+![GitHub](https://img.shields.io/github/license/yiyanwu/wheel-wjw.svg)
 
 ## 介绍
 
