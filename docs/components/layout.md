@@ -12,8 +12,6 @@ title: Layout 布局
 
 # 带有侧边栏的布局
 
-侧边栏可以隐藏
-
 <ClientOnly>
  <layout-demos-2></layout-demos-2>
 </ClientOnly>
