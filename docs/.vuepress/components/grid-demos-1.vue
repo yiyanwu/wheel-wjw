@@ -76,6 +76,7 @@ export default {
  .code { 
      color:#409eff;
      cursor: pointer;
+     user-select: none;
  }
 </style>
 <style scoped>
