@@ -54,17 +54,17 @@ describe('Collapse', () => {
     `
         const vm = new Vue({
             el: div,
-            data: {
-                xxx: ['1']
+            data(){
+                return {
+                    xxx: ['1']
+                }
             }
         })
+        vm.$el.querySelector('[data-name="2"]').click()
         setTimeout(() => {
-            vm.$el.querySelector('[data-name="2"]').click()
-            setTimeout(() => {
-                expect(vm.$el.querySelector('#content-1')).to.not.exist
-                expect(vm.$el.querySelector('#content-2')).to.exist
-                done()
-            })
+            expect(vm.$el.querySelector('#content-1')).to.not.exist
+            expect(vm.$el.querySelector('#content-2')).to.exist
+            done()
         })
     })
 
